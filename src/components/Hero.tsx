@@ -12,12 +12,15 @@ export default function Hero() {
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-primary">
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="https://rvlpoly.com/wp-content/uploads/2016/10/background_male_1.png"
-          alt="Manufacturing Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        <video
+          src="https://videos.pexels.com/video-files/3209211/3209211-hd_1920_1080_25fps.mp4"
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          autoPlay
+          loop
+          muted
+          playsInline
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
       {/* Hero Content */}
@@ -29,7 +32,7 @@ export default function Hero() {
           Precision in<br />Polymer Solutions
         </h1>
         <p className="text-surface/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
-          Engineering premium packaging materials since 2009. We deliver quality, scale, and trust to top MNCs and corporates across India.
+          Engineering premium packaging materials since 2009. We deliver quality, scale, and trust to top corporations across India.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a

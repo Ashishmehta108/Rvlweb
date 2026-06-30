@@ -34,10 +34,10 @@ export default function Certificates() {
           {certificates.map((cert) => (
             <div
               key={cert.id}
-              className="bg-background border border-surface/50 p-6 group cursor-pointer hover:border-accent/30 transition-colors"
+              className="bg-background border border-surface/50 p-6 group cursor-pointer hover:border-accent/30 transition-colors rounded-3xl"
               onClick={() => setActiveCert(cert.title)}
             >
-              <div className="aspect-[3/4] bg-surface mb-6 relative overflow-hidden flex items-center justify-center p-8">
+              <div className="aspect-[3/4] bg-surface mb-6 relative overflow-hidden flex items-center justify-center p-8 rounded-2xl">
                 {/* Abstract document representation */}
                 <div className="w-full h-full border-2 border-dashed border-text-secondary/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
                   <span className="font-mono text-text-secondary/50 rotate-[-45deg] text-xl font-bold">
@@ -64,7 +64,7 @@ export default function Certificates() {
             className="absolute inset-0 bg-primary/90 backdrop-blur-sm cursor-pointer"
             onClick={() => setActiveCert(null)}
           ></div>
-          <div className="relative w-full max-w-3xl bg-background border border-surface shadow-2xl z-10 flex flex-col max-h-[90vh]">
+          <div className="relative w-full max-w-3xl bg-background border border-surface shadow-2xl z-10 flex flex-col max-h-[90vh] rounded-3xl overflow-hidden">
             <div className="flex justify-between items-center p-4 border-b border-surface">
               <h3 className="font-heading font-bold text-lg">
                 {activeCert} Certification

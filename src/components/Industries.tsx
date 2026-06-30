@@ -44,7 +44,7 @@ export default function Industries() {
           {industries.map((ind) => (
             <div
               key={ind.id}
-              className="relative h-80 group overflow-hidden bg-white/5 border border-white/5"
+              className="relative h-80 group overflow-hidden bg-white/5 border border-white/5 rounded-3xl"
             >
               <img
                 src={ind.image}

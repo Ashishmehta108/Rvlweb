@@ -42,7 +42,7 @@ export default function Contact() {
                 Get In Touch
               </span>
               <h2 className="font-heading text-4xl md:text-5xl font-bold mb-8">
-                Ready to discuss your packaging requirements?
+                Partner with us for your packaging needs today.
               </h2>
 
               <div className="space-y-8 mt-12">
@@ -85,7 +85,7 @@ export default function Contact() {
             </div>
 
             {/* Inquiry Form */}
-            <div className="bg-surface p-8 md:p-12 animate-on-scroll rounded-2xl">
+            <div className="bg-surface p-8 md:p-12 animate-on-scroll rounded-3xl shadow-lg">
               {status === "success" ? (
                 <div className="h-full flex flex-col justify-center items-center text-center py-12 animate-fade-in">
                   <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mb-6">
@@ -127,7 +127,7 @@ export default function Contact() {
                       id="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-background border border-surface/50 p-4 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all font-sans rounded-2xl text-primary"
+                      className="w-full bg-background border border-surface/50 p-4 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-md transition-all font-sans rounded-full text-primary"
                       required
                       disabled={status === "submitting"}
                     />
@@ -144,7 +144,7 @@ export default function Contact() {
                       id="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-background border border-surface/50 p-4 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all font-sans rounded-2xl text-primary"
+                      className="w-full bg-background border border-surface/50 p-4 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-md transition-all font-sans rounded-full text-primary"
                       required
                       disabled={status === "submitting"}
                     />
@@ -161,7 +161,7 @@ export default function Contact() {
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full bg-background border border-surface/50 p-4 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all font-sans resize-none rounded-2xl text-primary"
+                      className="w-full bg-background border border-surface/50 p-4 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-md transition-all font-sans resize-none rounded-3xl text-primary"
                       required
                       disabled={status === "submitting"}
                     ></textarea>
