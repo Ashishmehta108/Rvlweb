@@ -3,532 +3,1380 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RVL Poly Industries - Premium Manufacturing Excellence</title>
-    <meta name="description" content="RVL Poly Industries Private Limited. AN ISO 9001 : 2015 Certified Company. Premium manufacturing of HDPE/PP Woven bags, Printed Laminates, and Polycoated Papers.">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>RVL Poly Industries — Premium Packaging Manufacturer</title>
+    <meta name="description" content="RVL Poly Industries Private Limited. ISO 9001:2015 Certified. Manufacturer of HDPE/PP Woven Bags, Printed Laminates, and Polycoated Papers. Derabassi, Punjab.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#01082D',
-                        background: '#FFFFFF',
-                        surface: '#ADE1FB',
-                        'text-secondary': '#0F2573',
-                        accent: '#266CA9',
-                        'secondary-dark': '#041D56',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['"Space Grotesk"', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace'],
-                    },
-                    keyframes: {
-                        scroll: {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-50%)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    },
-                    animation: {
-                        'infinite-scroll': 'scroll 30s linear infinite',
-                        'fade-in': 'fadeIn 0.8s ease-out forwards',
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --navy:    #04112F;
+            --navy-mid: #0A1F4E;
+            --blue:    #1557A8;
+            --sky:     #2E86DE;
+            --mist:    #D6EAF8;
+            --off:     #F4F7FB;
+            --white:   #FFFFFF;
+            --ink:     #0D1B3E;
+            --slate:   #4A5C7A;
+            --border:  #CBD9EC;
+            --ff-head: 'Syne', sans-serif;
+            --ff-body: 'DM Sans', sans-serif;
+            --ff-mono: 'DM Mono', monospace;
+        }
+
+        html { font-size: 16px; }
         body {
-            background-color: #FFFFFF;
-            color: #01082D;
+            font-family: var(--ff-body);
+            background: var(--white);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        ::selection { background: var(--sky); color: #fff; }
+
+        /* ── UTILITY ────────────────────── */
+        .container { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+        @media(max-width:768px){ .container{ padding:0 20px; } }
+
+        .label {
+            font-family: var(--ff-mono);
+            font-size: 11px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--sky);
         }
 
-        .animate-on-scroll {
+        /* ── REVEAL ─────────────────────── */
+        .reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(24px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+        .reveal.in { opacity: 1; transform: none; }
+        .reveal-d1 { transition-delay: .1s; }
+        .reveal-d2 { transition-delay: .2s; }
+        .reveal-d3 { transition-delay: .3s; }
+
+        /* ── NAV ────────────────────────── */
+        #nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            border-bottom: 1px solid transparent;
+            transition: background .3s, border-color .3s, box-shadow .3s;
+        }
+        #nav.scrolled {
+            background: rgba(255,255,255,.97);
+            border-color: var(--border);
+            box-shadow: 0 1px 12px rgba(0,0,0,.06);
+        }
+        .nav-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            height: 68px;
+        }
+        .nav-logo {
+            font-family: var(--ff-head);
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: .04em;
+            color: var(--white);
+            text-decoration: none;
+            transition: color .3s;
+        }
+        #nav.scrolled .nav-logo { color: var(--navy); }
+
+        .nav-links { display: flex; align-items: center; gap: 36px; }
+        .nav-links a {
+            font-size: 13.5px;
+            font-weight: 500;
+            color: rgba(255,255,255,.75);
+            text-decoration: none;
+            transition: color .2s;
+        }
+        .nav-links a:hover { color: var(--white); }
+        #nav.scrolled .nav-links a { color: var(--slate); }
+        #nav.scrolled .nav-links a:hover { color: var(--navy); }
+
+        .nav-cta {
+            font-size: 13px !important;
+            font-weight: 600 !important;
+            color: var(--white) !important;
+            background: var(--blue);
+            padding: 10px 22px;
+            border-radius: 6px;
+            transition: background .2s !important;
+        }
+        .nav-cta:hover { background: var(--sky) !important; color: var(--white) !important; }
+        #nav.scrolled .nav-cta { color: var(--white) !important; }
+
+        @media(max-width:768px){
+            .nav-links { display: none; }
         }
 
-        .animate-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* ── HERO ───────────────────────── */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex; align-items: center;
+            background: var(--navy);
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background-image: url('hero_image.jpg');
+            background-size: cover; background-position: center;
+            opacity: 0.3; /* Increased opacity to show the beautiful factory image */
+            /* Dark overlay */
+        }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(4, 17, 47, 0.7); /* Deep navy overlay to ensure text readability */
+            z-index: -1;
+        }
+        .hero-banner { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+        
+        /* Subtle grid overlay */
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .hero-particles svg {
+            width: 100%;
+            height: 100%;
+        }
+        .hero-particles circle {
+            fill: rgba(38,108,169,0.6);
+            animation: rise 8s linear infinite;
+        }
+        @keyframes rise {
+            0% { transform: translateY(100%); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(-10%); opacity: 0; }
+        }
+        .hero-content {
+            position: relative; z-index: 2;
+            padding: 160px 0 120px;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            border: 1px solid rgba(46,134,222,.4);
+            padding: 6px 14px;
+            border-radius: 4px;
+            margin-bottom: 36px;
+        }
+        .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sky); }
+        .hero-badge span {
+            font-family: var(--ff-mono);
+            font-size: 11px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.65);
+        }
+        .hero h1 {
+            font-family: var(--ff-head);
+            font-weight: 800;
+            font-size: clamp(44px, 7vw, 88px);
+            line-height: 1.0;
+            letter-spacing: -.02em;
+            color: var(--white);
+            max-width: 820px;
+            margin-bottom: 28px;
+        }
+        .hero h1 em {
+            font-style: normal;
+            color: var(--sky);
+        }
+        .hero p {
+            font-size: 17px;
+            line-height: 1.75;
+            color: rgba(255,255,255,.55);
+            max-width: 520px;
+            font-weight: 300;
+            margin-bottom: 44px;
+        }
+        .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-block;
+            background: var(--sky);
+            color: var(--white);
+            padding: 14px 30px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background .2s, transform .2s;
+        }
+        .btn-primary:hover { background: #2070C0; transform: translateY(-1px); }
+        .btn-outline {
+            display: inline-block;
+            border: 1px solid rgba(255,255,255,.25);
+            color: rgba(255,255,255,.8);
+            padding: 14px 30px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: border-color .2s, color .2s;
+        }
+        .btn-outline:hover { border-color: rgba(255,255,255,.6); color: var(--white); }
+
+        /* Hero stats row */
+        .hero-stats {
+            position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+            border-top: 1px solid rgba(255,255,255,.07);
+            background: rgba(0,0,0,.2);
+            backdrop-filter: blur(12px);
+        }
+        .hero-stats-inner {
+            display: flex; align-items: stretch;
+        }
+        .hero-stat {
+            flex: 1;
+            padding: 22px 32px;
+            border-right: 1px solid rgba(255,255,255,.07);
+        }
+        .hero-stat:last-child { border-right: none; }
+        .hero-stat .num {
+            font-family: var(--ff-head);
+            font-weight: 700;
+            font-size: 28px;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .hero-stat .lbl {
+            font-family: var(--ff-mono);
+            font-size: 10px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.4);
+        }
+        @media(max-width:768px){
+            .hero-stats-inner { flex-wrap: wrap; }
+            .hero-stat { flex: 0 0 50%; border-bottom: 1px solid rgba(255,255,255,.07); }
         }
 
-        /* Hide scrollbar for gallery */
-        .no-scrollbar::-webkit-scrollbar {
+        /* Ticker */
+        .ticker-wrap {
+            overflow: hidden;
+            background: var(--off);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+        }
+        .ticker {
+            display: flex;
+            width: max-content;
+            animation: ticker 32s linear infinite;
+        }
+        .ticker-item {
+            display: flex; align-items: center; gap: 10px;
+            padding: 0 28px;
+            font-family: var(--ff-mono);
+            font-size: 11px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--slate);
+            white-space: nowrap;
+        }
+        .ticker-sep { width: 3px; height: 3px; background: var(--sky); border-radius: 50%; }
+        @keyframes ticker {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ── SECTIONS ───────────────────── */
+        section { padding: 100px 0; }
+        @media(max-width:768px){ section { padding: 64px 0; } }
+
+        .section-head { margin-bottom: 60px; }
+        .section-title {
+            font-family: var(--ff-head);
+            font-weight: 700;
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.1;
+            letter-spacing: -.02em;
+            color: var(--navy);
+            margin-top: 14px;
+        }
+
+        /* ── ABOUT ──────────────────────── */
+        .about { background: var(--white); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        @media(max-width:900px){
+            .about-grid { grid-template-columns: 1fr; gap: 48px; }
+        }
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--slate);
+            font-weight: 300;
+            margin-bottom: 18px;
+        }
+        .about-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+        .metric {
+            padding: 28px 0 28px;
+            border-right: 1px solid var(--border);
+        }
+        .metric:nth-child(even) { padding-left: 32px; border-right: none; }
+        .metric:nth-child(odd)  { padding-right: 32px; }
+        .metric-num {
+            font-family: var(--ff-head);
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .metric-lbl {
+            font-family: var(--ff-mono);
+            font-size: 10px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--slate);
+        }
+        .about-img {
+            position: relative;
+            height: 560px;
+        }
+        .about-img img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        /* Accent strip */
+        .about-img::before {
+            content: '';
+            position: absolute;
+            top: -12px; left: -12px;
+            width: 100px; height: 4px;
+            background: var(--sky);
+        }
+        .about-img::after {
+            content: 'ISO 9001:2015';
+            position: absolute;
+            bottom: 20px; right: 20px;
+            font-family: var(--ff-mono);
+            font-size: 10px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: var(--navy);
+            padding: 8px 14px;
+        }
+
+        /* ── PRODUCTS ───────────────────── */
+        .products { background: var(--off); }
+        .products-header {
+            display: flex; align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 48px;
+        }
+        .products-header a {
+            font-family: var(--ff-mono);
+            font-size: 12px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--blue);
+            text-decoration: none;
+            border-bottom: 1px solid var(--blue);
+            padding-bottom: 2px;
+            transition: color .2s, border-color .2s;
+        }
+        .products-header a:hover { color: var(--sky); border-color: var(--sky); }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+        @media(max-width:900px){
+            .products-grid { grid-template-columns: 1fr; }
+        }
+        .product-card {
+            background: var(--white);
+            overflow: hidden;
+            transition: box-shadow .3s;
+        }
+        .product-card:hover { box-shadow: 0 12px 40px rgba(4,17,47,.12); }
+        .product-img {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+        .product-img img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform .6s ease;
+        }
+        .product-card:hover .product-img img { transform: scale(1.04); }
+        .product-tag {
+            position: absolute; top: 16px; left: 16px;
+            background: var(--navy);
+            color: var(--white);
+            font-family: var(--ff-mono);
+            font-size: 10px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            padding: 5px 10px;
+        }
+        .product-body { padding: 28px 28px 32px; }
+        .product-body h3 {
+            font-family: var(--ff-head);
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        .product-body p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--slate);
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        .product-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .product-tag-pill {
+            /* existing styles */
+        }
+        .product-card, .industry-card {
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .product-img img, .industry-card img {
+            border-radius: 20px;
+        }
+            font-family: var(--ff-mono);
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--blue);
+            background: var(--mist);
+            padding: 4px 10px;
+        }
+
+        /* ── INDUSTRIES ─────────────────── */
+        .industries { background: var(--navy); padding-bottom: 80px; }
+        .industries .section-title { color: var(--white); }
+        .industries .label { color: rgba(46,134,222,.8); }
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: rgba(255,255,255,.08);
+        }
+        @media(max-width:900px){
+            .industries-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .industry-card {
+            position: relative;
+            height: 340px;
+            overflow: hidden;
+            background: var(--navy-mid);
+            cursor: default;
+        }
+        .industry-card img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: .3;
+            filter: grayscale(100%);
+            transition: opacity .5s, filter .5s, transform .6s;
+        }
+        .industry-card:hover img {
+            opacity: .55; filter: grayscale(0%); transform: scale(1.04);
+        }
+        .industry-info {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 24px;
+            background: linear-gradient(to top, rgba(4,17,47,.9) 0%, transparent 60%);
+        }
+        .industry-info h3 {
+            font-family: var(--ff-head);
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+        .industry-info p {
+            font-size: 13px;
+            color: rgba(255,255,255,.5);
+            line-height: 1.55;
+            font-weight: 300;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease, opacity .4s;
+            opacity: 0;
+        }
+        .industry-card:hover .industry-info p { max-height: 60px; opacity: 1; }
+
+        /* ── CAPABILITIES ───────────────── */
+        .capabilities { background: var(--white); }
+        .cap-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid var(--border);
+            margin-bottom: 80px;
+        }
+        @media(max-width:768px){
+            .cap-strip { grid-template-columns: 1fr 1fr; }
+        }
+        .cap-item {
+            padding: 36px 32px;
+            border-right: 1px solid var(--border);
+        }
+        .cap-item:last-child { border-right: none; }
+        .cap-num {
+            font-family: var(--ff-head);
+            font-size: 44px;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .cap-label {
+            font-family: var(--ff-mono);
+            font-size: 10px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--slate);
+        }
+
+        .cap-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+        }
+        @media(max-width:768px){
+            .cap-features { grid-template-columns: 1fr; }
+        }
+        .cap-feat {
+            background: var(--off);
+            padding: 32px;
+        }
+        .cap-feat-icon {
+            width: 40px; height: 40px;
+            background: var(--mist);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 18px;
+        }
+        .cap-feat-icon svg { width: 20px; height: 20px; color: var(--blue); }
+        .cap-feat h4 {
+            font-family: var(--ff-head);
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .cap-feat p {
+            font-size: 13.5px;
+            line-height: 1.65;
+            color: var(--slate);
+            font-weight: 300;
+        }
+
+        /* ── GALLERY ────────────────────── */
+        .gallery { background: var(--off); }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 2px;
+        }
+        @media(max-width:768px){
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+        .gal-item {
+            position: relative;
+            overflow: hidden;
+        }
+        .gal-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: grayscale(60%);
+            transition: filter .6s, transform .6s;
+            display: block;
+        }
+        .gal-item:hover img { filter: grayscale(0%); transform: scale(1.03); }
+        .gal-label {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 16px 20px;
+            background: linear-gradient(to top, rgba(4,17,47,.75), transparent);
+            font-family: var(--ff-mono);
+            font-size: 10px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.7);
+            transform: translateY(100%);
+            transition: transform .3s ease;
+        }
+        .gal-item:hover .gal-label { transform: translateY(0); }
+        .gal-item:nth-child(1) { grid-row: span 1; min-height: 320px; }
+        .gal-item:nth-child(2) { grid-row: span 2; min-height: 640px; }
+        .gal-item:nth-child(3) { min-height: 320px; }
+        .gal-item:nth-child(4) { grid-column: 1; min-height: 280px; }
+
+        /* ── CONTACT ────────────────────── */
+        .contact { background: var(--white); }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+        @media(max-width:900px){
+            .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+        }
+        .contact-info h2 {
+            font-family: var(--ff-head);
+            font-size: clamp(28px, 3.5vw, 42px);
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.15;
+            margin: 14px 0 36px;
+        }
+        .contact-block { margin-bottom: 32px; }
+        .contact-block h5 {
+            font-family: var(--ff-mono);
+            font-size: 10px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--slate);
+            margin-bottom: 10px;
+        }
+        .contact-block p, .contact-block a {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 400;
+            display: block;
+        }
+        .contact-block a:hover { color: var(--sky); }
+
+        .form-wrap { background: var(--off); padding: 44px; }
+        @media(max-width:768px){ .form-wrap { padding: 28px 20px; } }
+
+        .field-group { margin-bottom: 20px; }
+        .field-group label {
+            display: block;
+            font-family: var(--ff-mono);
+            font-size: 10px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--slate);
+            margin-bottom: 8px;
+        }
+        .field-group input,
+        .field-group textarea {
+            width: 100%;
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 13px 16px;
+            font-family: var(--ff-body);
+            font-size: 14px;
+            color: var(--ink);
+            outline: none;
+            transition: border-color .2s, box-shadow .2s;
+            border-radius: 0;
+            -webkit-appearance: none;
+        }
+        .field-group input:focus,
+        .field-group textarea:focus {
+            border-color: var(--sky);
+            box-shadow: 0 0 0 3px rgba(46,134,222,.1);
+        }
+        .field-group textarea { resize: vertical; min-height: 120px; }
+        .submit-btn {
+            width: 100%;
+            background: var(--navy);
+            color: var(--white);
+            border: none;
+            padding: 15px 32px;
+            font-family: var(--ff-body);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: .04em;
+            cursor: pointer;
+            transition: background .2s;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .submit-btn:hover { background: var(--blue); }
+        .submit-btn .spinner {
             display: none;
+            width: 16px; height: 16px;
+            border: 2px solid rgba(255,255,255,.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin .6s linear infinite;
         }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .submit-btn.loading .spinner { display: block; }
+        .submit-btn.loading .btn-text { opacity: .6; }
+
+        /* ── MAP ────────────────────────── */
+        .map-wrap {
+            height: 380px;
+            filter: grayscale(80%);
+            transition: filter .5s;
+        }
+        .map-wrap:hover { filter: grayscale(0%); }
+        .map-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+        /* ── FOOTER ─────────────────────── */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 72px 0 32px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255,255,255,.08);
+            margin-bottom: 32px;
+        }
+        @media(max-width:768px){
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+        .footer-brand {
+            font-family: var(--ff-head);
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: .04em;
+            color: var(--white);
+            display: block;
+            margin-bottom: 16px;
+        }
+        .footer-desc {
+            font-size: 13.5px;
+            line-height: 1.75;
+            color: rgba(255,255,255,.4);
+            font-weight: 300;
+            max-width: 280px;
+            margin-bottom: 20px;
+        }
+        .footer-cert {
+            display: inline-block;
+            border: 1px solid rgba(255,255,255,.15);
+            padding: 6px 12px;
+            font-family: var(--ff-mono);
+            font-size: 10px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.5);
+        }
+        .footer-col h5 {
+            font-family: var(--ff-mono);
+            font-size: 10px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.3);
+            margin-bottom: 20px;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a {
+            font-size: 13.5px;
+            color: rgba(255,255,255,.55);
+            text-decoration: none;
+            font-weight: 300;
+            transition: color .2s;
+        }
+        .footer-col ul li a:hover { color: var(--white); }
+        .footer-col ul li span {
+            font-size: 13.5px;
+            color: rgba(255,255,255,.4);
+            font-weight: 300;
+        }
+        .footer-bottom {
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 12px;
+        }
+        .footer-bottom p {
+            font-family: var(--ff-mono);
+            font-size: 11px;
+            color: rgba(255,255,255,.25);
+            letter-spacing: .06em;
+        }
+        .footer-bottom-links { display: flex; gap: 24px; }
+        .footer-bottom-links a {
+            font-family: var(--ff-mono);
+            font-size: 11px;
+            color: rgba(255,255,255,.25);
+            text-decoration: none;
+            transition: color .2s;
+        }
+        .footer-bottom-links a:hover { color: rgba(255,255,255,.7); }
+
+        /* Cert modal */
+        #cert-modal {
+            display: none;
+            position: fixed; inset: 0; z-index: 200;
+            align-items: center; justify-content: center;
+            padding: 20px;
+        }
+        #cert-modal.open { display: flex; }
+        #cert-modal .overlay {
+            position: absolute; inset: 0;
+            background: rgba(4,17,47,.85);
+            backdrop-filter: blur(4px);
+            cursor: pointer;
+        }
+        #cert-modal .modal-box {
+            position: relative; z-index: 1;
+            background: var(--white);
+            max-width: 600px; width: 100%;
+            max-height: 90vh;
+        }
+        .modal-head {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        .modal-head h3 {
+            font-family: var(--ff-head);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .modal-close {
+            background: none; border: none;
+            cursor: pointer; padding: 4px;
+            color: var(--slate);
+        }
+        .modal-body {
+            padding: 48px;
+            background: var(--off);
+            min-height: 280px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .modal-placeholder { text-align: center; }
+        .modal-placeholder svg { margin: 0 auto 12px; display: block; color: var(--slate); }
+        .modal-placeholder p {
+            font-family: var(--ff-mono);
+            font-size: 12px;
+            color: var(--slate);
+            letter-spacing: .1em;
+        }
+        .modal-placeholder small {
+            display: block;
+            margin-top: 6px;
+            font-size: 11px;
+            color: var(--border);
         }
 
-        .img-hover-reveal {
-            transition: transform 0.5s ease;
-        }
-        .group:hover .img-hover-reveal {
-            transform: scale(1.05);
+        @media(prefers-reduced-motion: reduce){
+            .reveal, .ticker { animation: none; transition: none; }
+            .reveal { opacity: 1; transform: none; }
         }
     </style>
 </head>
-<body class="antialiased font-sans selection:bg-accent selection:text-white">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center backdrop-blur-md bg-background/80 border-b border-surface">
-            <div class="flex items-center gap-2">
-                <span class="font-heading font-bold text-xl tracking-tight">RVL POLY</span>
-            </div>
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#about" class="text-text-secondary hover:text-primary transition-colors">About</a>
-                <a href="#products" class="text-text-secondary hover:text-primary transition-colors">Products</a>
-                <a href="#capabilities" class="text-text-secondary hover:text-primary transition-colors">Capabilities</a>
-                <a href="#contact" class="bg-primary text-white px-5 py-2.5 rounded-full hover:bg-primary/90 transition-colors">Get in Touch</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-primary">
-        <div class="absolute inset-0 z-0">
-            <img src="https://rvlpoly.com/wp-content/uploads/2016/10/background_male_1.png" alt="Manufacturing Background" class="w-full h-full object-cover opacity-30">
-            <div class="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary"></div>
-        </div>
-
-        <div class="relative z-10 text-center max-w-4xl px-6 pt-20 animate-fade-in">
-            <div class="inline-block mb-6 px-3 py-1 border border-accent/30 text-accent font-mono text-xs tracking-widest uppercase bg-primary/50 backdrop-blur-sm">
-                ISO 9001:2015 Certified Manufacturing
-            </div>
-            <h1 class="font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
-                Precision in<br>Polymer Solutions
-            </h1>
-            <p class="text-surface/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
-                Engineering premium packaging materials since 2009. We deliver quality, scale, and trust to top MNCs and corporates across India.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#products" class="bg-accent text-white px-8 py-4 font-medium hover:bg-accent/90 transition-colors tracking-wide rounded-full">
-                    Explore Products
-                </a>
-                <a href="#contact" class="border border-surface text-white px-8 py-4 font-medium hover:bg-surface hover:text-primary transition-colors tracking-wide rounded-full">
-                    Request Capabilities
-                </a>
+<!-- NAV -->
+<nav id="nav">
+    <div class="container">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">RVL POLY</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#products">Products</a>
+                <a href="#capabilities">Capabilities</a>
+                <a href="#contact" class="nav-cta">Get in Touch</a>
             </div>
         </div>
+    </div>
+</nav>
 
-        <!-- Scrolling Ribbon -->
-        <div class="absolute bottom-0 w-full overflow-hidden bg-white/5 backdrop-blur-sm border-t border-white/10 py-4 flex z-10">
-            <div class="flex whitespace-nowrap animate-infinite-scroll w-max font-mono text-xs uppercase tracking-[0.2em] text-surface/70">
-                <span class="mx-8 flex items-center gap-4"><span>HDPE/PP WOVEN BAGS</span> <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-                <span class="mx-8 flex items-center gap-4"><span>PRINTED LAMINATES</span> <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-                <span class="mx-8 flex items-center gap-4"><span>POLY COATED PAPERS</span> <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-                <span class="mx-8 flex items-center gap-4"><span>LDPE POLYBAGS/LINERS</span> <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-                <span class="mx-8 flex items-center gap-4"><span>SHRINK FILM</span> <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-                <span class="mx-8 flex items-center gap-4"><span>STRETCH FILM</span> <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-                <!-- Duplicate for seamless scroll -->
-                <span class="mx-8 flex items-center gap-4"><span>HDPE/PP WOVEN BAGS</span> <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-                <span class="mx-8 flex items-center gap-4"><span>PRINTED LAMINATES</span> <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-                <span class="mx-8 flex items-center gap-4"><span>POLY COATED PAPERS</span> <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-                <span class="mx-8 flex items-center gap-4"><span>LDPE POLYBAGS/LINERS</span> <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-                <span class="mx-8 flex items-center gap-4"><span>SHRINK FILM</span> <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-                <span class="mx-8 flex items-center gap-4"><span>STRETCH FILM</span> <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-            </div>
+<!-- HERO -->
+<section class="hero">
+
+        <div class="hero-bg"></div>
+        <div class="hero-particles">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                <circle cx="20" cy="100" r="1.5"/>
+                <circle cx="40" cy="115" r="2"/>
+                <circle cx="60" cy="130" r="1"/>
+                <circle cx="80" cy="145" r="1.8"/>
+            </svg>
         </div>
-    </section>
-
-    <!-- Company Story Section -->
-    <section id="about" class="py-24 md:py-32 max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div class="animate-on-scroll">
-                <span class="font-mono text-accent text-sm tracking-widest uppercase block mb-6">Our Foundation</span>
-                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-8 leading-tight">
-                    Manufacturing excellence<br>built on integrity.
-                </h2>
-                <div class="space-y-6 text-text-secondary text-lg font-light">
-                    <p>
-                        Incorporated in 2009, RVL Poly Industries has grown into a leading manufacturer of diverse packaging materials. Operating from three advanced manufacturing facilities in Derabassi, Punjab, we cater to the complex packaging needs of top multinational corporations across India.
-                    </p>
-                    <p>
-                        Strategically located on the Delhi-Chandigarh Highway, our facilities benefit from exceptional logistics proximity, allowing us to maintain robust supply chains for our partners.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-2 gap-8 mt-12 pt-12 border-t border-surface">
-                    <div>
-                        <div class="font-mono text-4xl text-primary font-bold mb-2">2009</div>
-                        <div class="text-sm text-text-secondary uppercase tracking-wider">Established</div>
-                    </div>
-                    <div>
-                        <div class="font-mono text-4xl text-primary font-bold mb-2">03</div>
-                        <div class="text-sm text-text-secondary uppercase tracking-wider">Manufacturing Units</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="relative h-[600px] w-full bg-surface animate-on-scroll">
-                <img src="https://rvlpoly.com/wp-content/uploads/2020/02/profile.jpg" alt="RVL Infrastructure" class="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
-                <div class="absolute inset-0 border border-primary/10 m-4 pointer-events-none"></div>
-            </div>
+    <div class="hero-grid"></div>
+    <div class="container hero-content">
+        <h1>Precision in<br><em>Polymer</em><br>Solutions</h1>
+        <p>Engineering premium packaging materials since 2009. Supplying top MNCs and corporates across India from three facilities in Punjab.</p>
+        <div class="hero-actions">
+            <a href="#products" class="btn-primary">Explore Products</a>
+            <a href="#contact" class="btn-outline">Get in Touch</a>
         </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="py-24 md:py-32 bg-surface">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 animate-on-scroll">
-                <div class="max-w-2xl">
-                    <span class="font-mono text-accent text-sm tracking-widest uppercase block mb-4">Product Portfolio</span>
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold leading-tight">Engineered for<br>industrial demands.</h2>
+    </div>
+    <div class="hero-stats">
+        <div class="container">
+            <div class="hero-stats-inner">
+                <div class="hero-stat">
+                    <div class="num">2009</div>
+                    <div class="lbl">Year Established</div>
                 </div>
-                <div class="mt-6 md:mt-0">
-                    <a href="#contact" class="inline-flex items-center gap-2 font-mono text-sm tracking-wider uppercase text-primary hover:text-accent transition-colors pb-1 border-b border-primary hover:border-accent">
-                        Request full catalog
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
+                <div class="hero-stat">
+                    <div class="num">3</div>
+                    <div class="lbl">Manufacturing Units</div>
                 </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Product 1 -->
-                <div class="group bg-background p-6 animate-on-scroll border border-transparent hover:border-accent/20 transition-colors">
-                    <div class="aspect-square bg-surface mb-6 overflow-hidden relative rounded-2xl">
-                        <img src="https://rvlpoly.com/wp-content/uploads/2016/10/hdpe-pp-woven-sacks-and-bags-500x480.jpg" alt="HDPE/PP Woven Sacks" class="w-full h-full object-cover img-hover-reveal">
-                        <div class="absolute top-4 left-4 bg-background/90 backdrop-blur px-3 py-1 font-mono text-xs text-primary rounded-full">BAGS / SACKS</div>
-                    </div>
-                    <h3 class="font-heading text-xl font-bold mb-3">HDPE/PP Woven Sacks</h3>
-                    <p class="text-text-secondary text-sm mb-6 line-clamp-3">
-                        Manufactured with avant-garde techniques using high-density polyethylene and polypropylene. Renowned for optimum storage capacity, widely demanded by industrial sectors.
-                    </p>
-                    <div class="flex flex-wrap gap-2 font-mono text-xs text-text-secondary">
-                        <span class="bg-surface px-2 py-1">High Density</span>
-                        <span class="bg-surface px-2 py-1">Durable</span>
-                    </div>
+                <div class="hero-stat">
+                    <div class="num">14+</div>
+                    <div class="lbl">Years of Operation</div>
                 </div>
-
-                <!-- Product 2 -->
-                <div class="group bg-background p-6 animate-on-scroll border border-transparent hover:border-accent/20 transition-colors" style="transition-delay: 100ms;">
-                    <div class="aspect-square bg-surface mb-6 overflow-hidden relative rounded-2xl">
-                        <img src="https://rvlpoly.com/wp-content/uploads/2016/10/packing-material-rvl-500x480.jpg" alt="HDPE/Paper Sandwich Bags" class="w-full h-full object-cover img-hover-reveal">
-                        <div class="absolute top-4 left-4 bg-background/90 backdrop-blur px-3 py-1 font-mono text-xs text-primary rounded-full">LAMINATED BAGS</div>
-                    </div>
-                    <h3 class="font-heading text-xl font-bold mb-3">HDPE/Paper Sandwich Bags</h3>
-                    <p class="text-text-secondary text-sm mb-6 line-clamp-3">
-                        Premium sandwich construction featuring outside paper with inside HDPE lamination. Engineered to meet various specialized customer requirements.
-                    </p>
-                    <div class="flex flex-wrap gap-2 font-mono text-xs text-text-secondary">
-                        <span class="bg-surface px-2 py-1">Reel Form</span>
-                        <span class="bg-surface px-2 py-1">Ready Bags</span>
-                    </div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="group bg-background p-6 animate-on-scroll border border-transparent hover:border-accent/20 transition-colors" style="transition-delay: 200ms;">
-                    <div class="aspect-square bg-surface mb-6 overflow-hidden relative rounded-2xl">
-                        <img src="https://rvlpoly.com/wp-content/uploads/2020/01/greaseproof-paper-500x480.jpg" alt="Grease Proof Paper" class="w-full h-full object-cover img-hover-reveal">
-                        <div class="absolute top-4 left-4 bg-background/90 backdrop-blur px-3 py-1 font-mono text-xs text-primary rounded-full">SPECIALTY PAPERS</div>
-                    </div>
-                    <h3 class="font-heading text-xl font-bold mb-3">Grease Proof & Freezer Paper</h3>
-                    <p class="text-text-secondary text-sm mb-6 line-clamp-3">
-                        Quality range made using tested raw materials and cutting-edge technology. Ideal for food packaging, cooking, and baking applications.
-                    </p>
-                    <div class="flex flex-wrap gap-2 font-mono text-xs text-text-secondary">
-                        <span class="bg-surface px-2 py-1">Food Grade</span>
-                        <span class="bg-surface px-2 py-1">Custom Sizes</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Industries Section -->
-    <section id="industries" class="py-24 md:py-32 bg-primary text-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-16 animate-on-scroll">
-                <span class="font-mono text-accent text-sm tracking-widest uppercase block mb-4">Industries Served</span>
-                <h2 class="font-heading text-4xl md:text-5xl font-bold leading-tight">Supporting diverse industrial sectors.</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-on-scroll">
-                <div class="relative h-80 group overflow-hidden bg-white/5 border border-white/5">
-                    <img src="https://rvlpoly.com/wp-content/uploads/2020/01/greaseproof-paper-500x480.jpg" alt="Food & Beverage" class="w-full h-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700 grayscale">
-                    <div class="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-primary to-transparent">
-                        <h3 class="font-heading text-xl font-bold">Food & Beverage</h3>
-                        <p class="text-surface/80 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Food-grade laminates and grease proof papers.</p>
-                    </div>
-                </div>
-                <div class="relative h-80 group overflow-hidden bg-white/5 border border-white/5">
-                    <img src="https://rvlpoly.com/wp-content/uploads/2016/10/hdpe-pp-woven-sacks-and-bags-500x480.jpg" alt="Agriculture" class="w-full h-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700 grayscale">
-                    <div class="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-primary to-transparent">
-                        <h3 class="font-heading text-xl font-bold">Agriculture</h3>
-                        <p class="text-surface/80 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Heavy-duty woven sacks for seeds and fertilizers.</p>
-                    </div>
-                </div>
-                <div class="relative h-80 group overflow-hidden bg-white/5 border border-white/5">
-                    <img src="https://rvlpoly.com/wp-content/uploads/2016/10/packing-material-rvl-500x480.jpg" alt="Chemicals" class="w-full h-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700 grayscale">
-                    <div class="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-primary to-transparent">
-                        <h3 class="font-heading text-xl font-bold">Chemicals</h3>
-                        <p class="text-surface/80 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Chemically resistant and leak-proof bulk packaging.</p>
-                    </div>
-                </div>
-                <div class="relative h-80 group overflow-hidden bg-white/5 border border-white/5">
-                    <img src="https://rvlpoly.com/wp-content/uploads/2019/07/gallery1-640x480.jpg" alt="Logistics" class="w-full h-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700 grayscale">
-                    <div class="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-primary to-transparent">
-                        <h3 class="font-heading text-xl font-bold">Logistics & Supply</h3>
-                        <p class="text-surface/80 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Stretch films and polybags for secure transit.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust & Manufacturing Excellence Section -->
-    <section id="capabilities" class="py-24 md:py-32 bg-background border-t border-surface">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-20 animate-on-scroll">
-                <span class="font-mono text-accent text-sm tracking-widest uppercase block mb-4">Manufacturing Excellence</span>
-                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6">Scale. Quality. Trust.</h2>
-                <p class="text-text-secondary text-lg">Our management is driven by ethical practices and rigorous adherence to industry standards, ensuring top-tier quality control across all production lines.</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24 animate-on-scroll border-y border-surface py-12">
-                <div class="text-center">
-                    <div class="font-mono text-5xl text-primary font-bold mb-2">14+</div>
-                    <div class="text-sm text-text-secondary uppercase tracking-wider font-mono">Years Exp.</div>
-                </div>
-                <div class="text-center">
-                    <div class="font-mono text-5xl text-primary font-bold mb-2">03</div>
-                    <div class="text-sm text-text-secondary uppercase tracking-wider font-mono">Facilities</div>
-                </div>
-                <div class="text-center">
-                    <div class="font-mono text-5xl text-primary font-bold mb-2">9001</div>
-                    <div class="text-sm text-text-secondary uppercase tracking-wider font-mono">ISO Certified</div>
-                </div>
-                <div class="text-center">
-                    <div class="font-mono text-5xl text-primary font-bold mb-2">100%</div>
-                    <div class="text-sm text-text-secondary uppercase tracking-wider font-mono">Quality Checked</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certificates Section -->
-    <section class="py-24 md:py-32 bg-surface">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 animate-on-scroll">
-                <div class="max-w-2xl">
-                    <span class="font-mono text-accent text-sm tracking-widest uppercase block mb-4">Standards & Compliance</span>
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold leading-tight">Certified Quality.</h2>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 animate-on-scroll">
-                <!-- Certificate Card -->
-                <div class="bg-background border border-surface/50 p-6 group cursor-pointer hover:border-accent/30 transition-colors" onclick="document.getElementById('cert-modal').classList.remove('hidden')">
-                    <div class="aspect-[3/4] bg-surface mb-6 relative overflow-hidden flex items-center justify-center p-8">
-                        <!-- Abstract document representation -->
-                        <div class="w-full h-full border-2 border-dashed border-text-secondary/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                            <span class="font-mono text-text-secondary/50 rotate-[-45deg] text-xl">ISO 9001:2015</span>
-                        </div>
-                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors flex items-center justify-center">
-                            <div class="opacity-0 group-hover:opacity-100 bg-background px-4 py-2 text-sm font-medium font-mono transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-sm border border-surface">VIEW CERTIFICATE</div>
-                        </div>
-                    </div>
-                    <h3 class="font-heading text-xl font-bold mb-2">ISO 9001:2015</h3>
-                    <p class="text-text-secondary text-sm">Quality Management Systems certification. Guaranteeing consistent quality in manufacturing operations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certificate Modal -->
-    <div id="cert-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-        <div class="absolute inset-0 bg-primary/90 backdrop-blur-sm" onclick="document.getElementById('cert-modal').classList.add('hidden')"></div>
-        <div class="relative w-full max-w-3xl bg-background border border-surface shadow-2xl z-10 flex flex-col max-h-[90vh]">
-            <div class="flex justify-between items-center p-4 border-b border-surface">
-                <h3 class="font-heading font-bold text-lg">ISO 9001:2015 Certification</h3>
-                <button onclick="document.getElementById('cert-modal').classList.add('hidden')" class="text-text-secondary hover:text-primary p-2">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                </button>
-            </div>
-            <div class="p-8 overflow-y-auto flex items-center justify-center bg-surface min-h-[50vh]">
-                <div class="text-center">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="mx-auto mb-4 text-text-secondary"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    <p class="font-mono text-sm text-text-secondary">Official Document View</p>
-                    <p class="text-xs text-text-secondary/60 mt-2">(Authorized personnel only or upon request)</p>
+                <div class="hero-stat">
+                    <div class="num">100%</div>
+                    <div class="lbl">Quality Checked</div>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Gallery Section -->
-    <section class="py-24 md:py-32 bg-background">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16 animate-on-scroll">
-                <span class="font-mono text-accent text-sm tracking-widest uppercase block mb-4">Facility Gallery</span>
-                <h2 class="font-heading text-4xl md:text-5xl font-bold leading-tight">Inside our operations.</h2>
+<!-- TICKER -->
+<div class="ticker-wrap">
+    <div class="ticker">
+        <span class="ticker-item">HDPE/PP Woven Bags<span class="ticker-sep"></span></span>
+        <span class="ticker-item">Printed Laminates<span class="ticker-sep"></span></span>
+        <span class="ticker-item">Poly Coated Papers<span class="ticker-sep"></span></span>
+        <span class="ticker-item">LDPE Polybags & Liners<span class="ticker-sep"></span></span>
+        <span class="ticker-item">Shrink Film<span class="ticker-sep"></span></span>
+        <span class="ticker-item">Stretch Film<span class="ticker-sep"></span></span>
+        <span class="ticker-item">Grease Proof Paper<span class="ticker-sep"></span></span>
+        <span class="ticker-item">Freezer Paper<span class="ticker-sep"></span></span>
+        <!-- duplicate -->
+        <span class="ticker-item">HDPE/PP Woven Bags<span class="ticker-sep"></span></span>
+        <span class="ticker-item">Printed Laminates<span class="ticker-sep"></span></span>
+        <span class="ticker-item">Poly Coated Papers<span class="ticker-sep"></span></span>
+        <span class="ticker-item">LDPE Polybags & Liners<span class="ticker-sep"></span></span>
+        <span class="ticker-item">Shrink Film<span class="ticker-sep"></span></span>
+        <span class="ticker-item">Stretch Film<span class="ticker-sep"></span></span>
+        <span class="ticker-item">Grease Proof Paper<span class="ticker-sep"></span></span>
+        <span class="ticker-item">Freezer Paper<span class="ticker-sep"></span></span>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text reveal">
+                <span class="label">Our Foundation</span>
+                <h2 class="section-title" style="margin-top:14px;">Manufacturing<br>built on integrity.</h2>
+                <div style="margin-top:28px;">
+                    <p>Incorporated in 2009, RVL Poly Industries has grown into a leading manufacturer of diverse industrial packaging materials. Operating from three advanced facilities in Derabassi, Punjab, we serve the complex packaging needs of top multinational corporations across India.</p>
+                    <p>Strategically positioned on the Delhi–Chandigarh Highway, our plants benefit from excellent logistics access — enabling reliable supply chains for every partner we work with.</p>
+                    <p>We are driven by ethical management practices and rigorous adherence to ISO 9001:2015 quality standards across every production line.</p>
+                </div>
+                <div class="about-metrics">
+                    <div class="metric">
+                        <div class="metric-num">2009</div>
+                        <div class="metric-lbl">Year Established</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-num">03</div>
+                        <div class="metric-lbl">Manufacturing Units</div>
+                    </div>
+                </div>
             </div>
+            <div class="about-img reveal reveal-d1">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee?auto=format&fit=crop&w=800&q=80" alt="RVL Poly Infrastructure">
+            </div>
+        </div>
+    </div>
+</section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 animate-on-scroll">
-                <div class="relative group overflow-hidden aspect-[4/3] lg:col-span-2">
-                    <img src="https://rvlpoly.com/wp-content/uploads/2019/07/gallery2-640x480.jpg" alt="Production Line" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 img-hover-reveal rounded-2xl">
-                    <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-primary/80 to-transparent w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span class="text-white font-mono text-xs tracking-wider">01 // PRODUCTION LINE</span>
+<!-- PRODUCTS -->
+<section class="products" id="products">
+    <div class="container">
+        <div class="products-header reveal">
+            <div>
+                <span class="label">Product Portfolio</span>
+                <h2 class="section-title">Engineered for<br>industrial demands.</h2>
+            </div>
+            <a href="#contact">Request full catalog →</a>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="HDPE/PP Woven Sacks">
+                    <span class="product-tag">Bags / Sacks</span>
+                </div>
+                <div class="product-body">
+                    <h3>HDPE/PP Woven Sacks</h3>
+                    <p>Manufactured using high-density polyethylene and polypropylene with advanced weaving techniques. Renowned for optimum load capacity and durability in demanding industrial applications.</p>
+                    <div class="product-tags">
+                        <span class="product-tag-pill">High Density</span>
+                        <span class="product-tag-pill">UV Stabilized</span>
+                        <span class="product-tag-pill">Custom Print</span>
                     </div>
                 </div>
-                <div class="relative group overflow-hidden aspect-[4/3]">
-                    <img src="https://rvlpoly.com/wp-content/uploads/2019/07/gallery3-640x480.jpg" alt="Quality Control" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 img-hover-reveal rounded-2xl">
-                    <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-primary/80 to-transparent w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span class="text-white font-mono text-xs tracking-wider">02 // QUALITY CONTROL</span>
+            </div>
+            <div class="product-card reveal reveal-d1">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80" alt="HDPE/Paper Sandwich Bags">
+                    <span class="product-tag">Laminated Bags</span>
+                </div>
+                <div class="product-body">
+                    <h3>HDPE/Paper Sandwich Bags</h3>
+                    <p>Premium construction with outer kraft paper and inner HDPE lamination. Combines the strength of woven fabric with moisture protection for specialized industrial requirements.</p>
+                    <div class="product-tags">
+                        <span class="product-tag-pill">Reel Form</span>
+                        <span class="product-tag-pill">Ready Bags</span>
+                        <span class="product-tag-pill">Moisture Proof</span>
                     </div>
                 </div>
-                <div class="relative group overflow-hidden aspect-[4/3]">
-                    <img src="https://rvlpoly.com/wp-content/uploads/2019/07/gallery4-640x480.jpg" alt="Manufacturing Area" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 img-hover-reveal rounded-2xl">
-                    <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-primary/80 to-transparent w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span class="text-white font-mono text-xs tracking-wider">03 // FLOOR OPERATIONS</span>
-                    </div>
+            </div>
+            <div class="product-card reveal reveal-d2">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1612810806695-30f054ba8205?auto=format&fit=crop&w=800&q=80" alt="Grease Proof Paper">
+                    <span class="product-tag">Specialty Papers</span>
                 </div>
-                <div class="relative group overflow-hidden aspect-[4/3] lg:col-span-2">
-                    <img src="https://rvlpoly.com/wp-content/uploads/2019/07/gallery1-640x480.jpg" alt="Storage and Logistics" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 img-hover-reveal rounded-2xl">
-                    <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-primary/80 to-transparent w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span class="text-white font-mono text-xs tracking-wider">04 // STORAGE & WAREHOUSING</span>
+                <div class="product-body">
+                    <h3>Grease Proof &amp; Freezer Paper</h3>
+                    <p>Manufactured from tested raw materials using precision coating technology. Ideal for food packaging, baking, and freezer applications requiring reliable barrier performance.</p>
+                    <div class="product-tags">
+                        <span class="product-tag-pill">Food Grade</span>
+                        <span class="product-tag-pill">Custom Sizes</span>
+                        <span class="product-tag-pill">Grease Barrier</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 md:py-32">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div class="animate-on-scroll">
-                    <span class="font-mono text-accent text-sm tracking-widest uppercase block mb-4">Get In Touch</span>
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-8">Ready to discuss your packaging requirements?</h2>
-
-                    <div class="space-y-8 mt-12">
-                        <div>
-                            <h4 class="font-mono text-xs text-text-secondary uppercase tracking-widest mb-2">Corporate Office & Manufacturing</h4>
-                            <p class="text-lg font-medium">Saidpura Industrial Park Block A,<br>Barwala Road, Derabassi,<br>Punjab 140507</p>
-                        </div>
-
-                        <div>
-                            <h4 class="font-mono text-xs text-text-secondary uppercase tracking-widest mb-2">Contact Details</h4>
-                            <p class="text-lg font-mono mb-1">(+91) 987-645-7799</p>
-                            <p class="text-lg"><a href="mailto:rahul.gupta@rvlpoly.com" class="hover:text-accent transition-colors">rahul.gupta@rvlpoly.com</a></p>
-                            <p class="text-lg"><a href="mailto:rvlpoly@yahoo.co.in" class="hover:text-accent transition-colors">rvlpoly@yahoo.co.in</a></p>
-                        </div>
-                    </div>
+<!-- INDUSTRIES -->
+<section class="industries" id="industries">
+    <div class="container">
+        <div class="section-head reveal" style="margin-bottom:48px;">
+            <span class="label">Industries Served</span>
+            <h2 class="section-title">Supporting diverse<br>industrial sectors.</h2>
+        </div>
+        <div class="industries-grid reveal">
+            <div class="industry-card">
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80" alt="Food & Beverage">
+                <div class="industry-info">
+                    <h3>Food &amp; Beverage</h3>
+                    <p>Food-grade laminates, grease proof papers, and custom barrier packaging.</p>
                 </div>
-
-                <div class="bg-surface p-8 md:p-12 animate-on-scroll rounded-2xl">
-                    <form class="space-y-6">
-                        <div>
-                            <label class="block font-mono text-xs uppercase tracking-widest text-text-secondary mb-2" for="name">Your Name</label>
-                            <input type="text" id="name" class="w-full bg-background border border-surface/50 p-4 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all font-sans rounded-2xl" required>
-                        </div>
-                        <div>
-                            <label class="block font-mono text-xs uppercase tracking-widest text-text-secondary mb-2" for="email">Your Email</label>
-                            <input type="email" id="email" class="w-full bg-background border border-surface/50 p-4 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all font-sans rounded-2xl" required>
-                        </div>
-                        <div>
-                            <label class="block font-mono text-xs uppercase tracking-widest text-text-secondary mb-2" for="message">Your Message</label>
-                            <textarea id="message" rows="4" class="w-full bg-background border border-surface/50 p-4 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all font-sans resize-none rounded-2xl" required></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-primary text-white py-4 font-medium tracking-wide hover:bg-primary/90 transition-colors rounded-full">
-                            Send Inquiry
-                        </button>
-                    </form>
+            </div>
+            <div class="industry-card">
+                <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6962b3?auto=format&fit=crop&w=800&q=80" alt="Agriculture">
+                <div class="industry-info">
+                    <h3>Agriculture</h3>
+                    <p>Heavy-duty woven sacks for seeds, fertilizers, and agro-chemicals.</p>
+                </div>
+            </div>
+            <div class="industry-card">
+                <img src="https://images.unsplash.com/photo-1518670405-3c9d8e7c1e9c?auto=format&fit=crop&w=800&q=80" alt="Chemicals">
+                <div class="industry-info">
+                    <h3>Chemicals</h3>
+                    <p>Chemically resistant, leak-proof bulk packaging for industrial compounds.</p>
+                </div>
+            </div>
+            <div class="industry-card">
+                <img src="https://images.unsplash.com/photo-1523456789-123abc456def?auto=format&fit=crop&w=800&q=80" alt="Logistics">
+                <div class="industry-info">
+                    <h3>Logistics &amp; Supply</h3>
+                    <p>Stretch films and protective polybags for safe transit and warehousing.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Map Section -->
-    <section class="h-96 w-full filter grayscale contrast-125 opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3434.698229274805!2d76.85954591445757!3d30.586063199738973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fbff7c4484a57%3A0xc5621b8046d4addf!2sRVL%20POLY%20Industries%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1579961641111!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-primary text-white pt-20 pb-10 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="md:col-span-2">
-                    <span class="font-heading font-bold text-2xl tracking-tight mb-6 block">RVL POLY</span>
-                    <p class="text-surface/60 max-w-sm font-light text-sm">
-                        Premium industrial packaging solutions engineered with precision. Serving top corporations since 2009.
-                    </p>
-                    <div class="mt-6 inline-block border border-white/20 px-3 py-1 font-mono text-xs text-white/80 uppercase tracking-widest">
-                        ISO 9001:2015 Certified
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="font-mono text-xs uppercase tracking-widest text-surface/40 mb-6">Navigation</h4>
-                    <ul class="space-y-3 text-sm font-light text-surface/80">
-                        <li><a href="#about" class="hover:text-accent transition-colors">About Us</a></li>
-                        <li><a href="#products" class="hover:text-accent transition-colors">Products</a></li>
-                        <li><a href="#capabilities" class="hover:text-accent transition-colors">Manufacturing</a></li>
-                        <li><a href="#contact" class="hover:text-accent transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-mono text-xs uppercase tracking-widest text-surface/40 mb-6">Products</h4>
-                    <ul class="space-y-3 text-sm font-light text-surface/80">
-                        <li>HDPE/PP Woven Bags</li>
-                        <li>Printed Laminates</li>
-                        <li>Poly Coated Papers</li>
-                        <li>LDPE Polybags & Liners</li>
-                    </ul>
-                </div>
+<!-- CAPABILITIES -->
+<section class="capabilities" id="capabilities">
+    <div class="container">
+        <div class="section-head reveal" style="max-width:600px;">
+            <span class="label">Manufacturing Excellence</span>
+            <h2 class="section-title">Scale. Quality. Trust.</h2>
+        </div>
+        <div class="cap-strip reveal">
+            <div class="cap-item">
+                <div class="cap-num count" data-to="14" data-suffix="+">14+</div>
+                <div class="cap-label">Years Experience</div>
             </div>
+            <div class="cap-item">
+                <div class="cap-num count" data-to="3">03</div>
+                <div class="cap-label">Facilities</div>
+            </div>
+            <div class="cap-item">
+                <div class="cap-num">ISO</div>
+                <div class="cap-label">9001:2015 Certified</div>
+            </div>
+            <div class="cap-item">
+                <div class="cap-num count" data-to="100" data-suffix="%">100%</div>
+                <div class="cap-label">Quality Checked</div>
+            </div>
+        </div>
+        <div class="cap-features">
+            <div class="cap-feat reveal">
+                <div class="cap-feat-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <h4>ISO 9001:2015 Quality Management</h4>
+                <p>Every production run is governed by documented quality procedures, incoming material checks, and end-of-line inspection to ensure zero-defect delivery.</p>
+            </div>
+            <div class="cap-feat reveal reveal-d1">
+                <div class="cap-feat-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                </div>
+                <h4>Three Dedicated Facilities</h4>
+                <p>Three purpose-built plants in Derabassi's Saidpura Industrial Park provide dedicated lines for woven bags, laminated packaging, and specialty papers.</p>
+            </div>
+            <div class="cap-feat reveal reveal-d2">
+                <div class="cap-feat-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+                </div>
+                <h4>Strategic Logistics Location</h4>
+                <p>Positioned on the Delhi–Chandigarh National Highway for fast, reliable dispatch to clients across North India and beyond.</p>
+            </div>
+            <div class="cap-feat reveal reveal-d3">
+                <div class="cap-feat-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <h4>Serving Top MNCs</h4>
+                <p>A trusted supply partner to leading multinational corporations across food, agro, chemical, and logistics sectors since 2009.</p>
+            </div>
+        </div>
 
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-surface/40">
-                <p>&copy; 2024 RVL Poly Industries Private Limited. All rights reserved.</p>
-                <div class="flex gap-6">
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        <!-- ISO Certificate card -->
+        <div style="margin-top:64px;" class="reveal">
+            <span class="label" style="display:block;margin-bottom:20px;">Standards &amp; Compliance</span>
+            <div style="display:inline-block;background:var(--off);border:1px solid var(--border);padding:32px 36px;cursor:pointer;" onclick="document.getElementById('cert-modal').classList.add('open')">
+                <div style="display:flex;align-items:center;gap:24px;">
+                    <div style="width:56px;height:56px;background:var(--mist);display:flex;align-items:center;justify-content:center;">
+                        <svg width="28" height="28" fill="none" stroke="var(--blue)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div>
+                        <div style="font-family:var(--ff-head);font-weight:700;font-size:16px;color:var(--navy);">ISO 9001:2015 Certified</div>
+                        <div style="font-size:13px;color:var(--slate);margin-top:4px;">Quality Management Systems — Click to view</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script>
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+<!-- GALLERY -->
+<section class="gallery">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="label">Facility Gallery</span>
+            <h2 class="section-title">Inside our operations.</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gal-item">
+                <img src="https://images.unsplash.com/photo-1499999999-aaa?auto=format&fit=crop&w=800&q=80" alt="Production Line">
+                <div class="gal-label">01 / Production Line</div>
+            </div>
+            <div class="gal-item">
+                <img src="https://images.unsplash.com/photo-1499999998-bbb?auto=format&fit=crop&w=800&q=80" alt="Quality Control">
+                <div class="gal-label">02 / Quality Control</div>
+            </div>
+            <div class="gal-item">
+                <img src="https://images.unsplash.com/photo-1499999997-ccc?auto=format&fit=crop&w=800&q=80" alt="Manufacturing Floor">
+                <div class="gal-label">03 / Floor Operations</div>
+            </div>
+            <div class="gal-item">
+                <img src="https://images.unsplash.com/photo-1499999996-ddd?auto=format&fit=crop&w=800&q=80" alt="Storage & Warehousing">
+                <div class="gal-label">04 / Storage &amp; Warehousing</div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="reveal">
+                <span class="label">Get in Touch</span>
+                <h2>Ready to discuss your packaging requirements?</h2>
+                <div class="contact-block">
+                    <h5>Corporate Office &amp; Manufacturing</h5>
+                    <p>Saidpura Industrial Park Block A,<br>Barwala Road, Derabassi,<br>Punjab — 140507</p>
+                </div>
+                <div class="contact-block">
+                    <h5>Phone</h5>
+                    <a href="tel:+919876457799">(+91) 987-645-7799</a>
+                </div>
+                <div class="contact-block">
+                    <h5>Email</h5>
+                    <a href="mailto:rahul.gupta@rvlpoly.com">rahul.gupta@rvlpoly.com</a>
+                    <a href="mailto:rvlpoly@yahoo.co.in">rvlpoly@yahoo.co.in</a>
+                </div>
+            </div>
+            <div class="reveal reveal-d1">
+                <div class="form-wrap">
+                    <div class="field-group">
+                        <label for="f-name">Your Name</label>
+                        <input type="text" id="f-name" placeholder="e.g. Rahul Sharma" required>
+                    </div>
+                    <div class="field-group">
+                        <label for="f-email">Email Address</label>
+                        <input type="email" id="f-email" placeholder="you@company.com" required>
+                    </div>
+                    <div class="field-group">
+                        <label for="f-company">Company</label>
+                        <input type="text" id="f-company" placeholder="Your company name">
+                    </div>
+                    <div class="field-group">
+                        <label for="f-msg">Message</label>
+                        <textarea id="f-msg" placeholder="Describe your packaging requirement…" required></textarea>
+                    </div>
+                    <button class="submit-btn" id="submit-btn" type="button">
+                        <span class="btn-text">Send Inquiry</span>
+                        <span class="spinner"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
+<!-- MAP -->
+<div class="map-wrap">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3434.698229274805!2d76.85954591445757!3d30.586063199738973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fbff7c4484a57%3A0xc5621b8046d4addf!2sRVL%20POLY%20Industries%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1579961641111!5m2!1sen!2sin" allowfullscreen loading="lazy"></iframe>
+</div>
 
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-sm');
-            } else {
-                nav.classList.remove('shadow-sm');
-            }
-        });
-    </script>
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <span class="footer-brand">RVL POLY</span>
+                <p class="footer-desc">Premium industrial packaging solutions engineered with precision. Serving top corporations since 2009 from Derabassi, Punjab.</p>
+                <span class="footer-cert">ISO 9001:2015 Certified</span>
+            </div>
+            <div class="footer-col">
+                <h5>Navigate</h5>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#capabilities">Manufacturing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Products</h5>
+                <ul>
+                    <li><span>HDPE/PP Woven Bags</span></li>
+                    <li><span>Printed Laminates</span></li>
+                    <li><span>Poly Coated Papers</span></li>
+                    <li><span>LDPE Polybags &amp; Liners</span></li>
+                    <li><span>Shrink &amp; Stretch Film</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 RVL Poly Industries Private Limited. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- CERT MODAL -->
+<div id="cert-modal">
+    <div class="overlay" onclick="document.getElementById('cert-modal').classList.remove('open')"></div>
+    <div class="modal-box">
+        <div class="modal-head">
+            <h3>ISO 9001:2015 Certification</h3>
+            <button class="modal-close" onclick="document.getElementById('cert-modal').classList.remove('open')">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-placeholder">
+                <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <p>Official Certificate</p>
+                <small>Available upon request to authorized personnel</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// Reveal on scroll
+const revealEls = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
+    });
+}, { threshold: 0.08 });
+revealEls.forEach(el => ro.observe(el));
+
+// Count-up
+function runCount(el) {
+    const to = parseInt(el.dataset.to);
+    const suffix = el.dataset.suffix || '';
+    const dur = 1200;
+    const start = performance.now();
+    function step(now) {
+        const t = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - t, 3);
+        const val = Math.round(ease * to);
+        el.textContent = (val < 10 && to <= 3 ? '0' + val : val) + suffix;
+        if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+}
+const countEls = document.querySelectorAll('.count');
+const co = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+        if (e.isIntersecting) { runCount(e.target); co.unobserve(e.target); }
+    });
+}, { threshold: 0.5 });
+countEls.forEach(el => co.observe(el));
+
+// Submit button
+const btn = document.getElementById('submit-btn');
+btn.addEventListener('click', () => {
+    btn.classList.add('loading');
+    setTimeout(() => {
+        btn.classList.remove('loading');
+        btn.querySelector('.btn-text').textContent = 'Inquiry Sent ✓';
+        btn.style.background = '#1a7a4a';
+    }, 1600);
+});
+</script>
 </body>
 </html>
