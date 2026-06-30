@@ -168,7 +168,7 @@ export default function Contact() {
                   </div>
 
                   {status === "error" && (
-                    <p className="text-red-600 font-medium text-sm">
+                    <p className="text-[#ADE1FB] font-medium text-sm">
                       Something went wrong. Please try again.
                     </p>
                   )}
