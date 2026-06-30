@@ -70,7 +70,7 @@ export default function Products() {
           {products.map((product) => (
             <div
               key={product.id}
-              className="group bg-background p-6 animate-on-scroll border border-transparent hover:border-accent/20 transition-colors"
+              className="group bg-background p-6 animate-on-scroll border border-transparent hover:border-accent/20 transition-colors rounded-3xl"
               style={{ transitionDelay: product.delay }}
             >
               <div className="aspect-square bg-surface mb-6 overflow-hidden relative rounded-2xl">

@@ -44,7 +44,7 @@ export default function Gallery() {
           {images.map((img, idx) => (
             <div
               key={idx}
-              className={`relative group overflow-hidden aspect-[4/3] ${img.span}`}
+              className={`relative group overflow-hidden aspect-[4/3] ${img.span} rounded-3xl`}
             >
               <img
                 src={img.src}

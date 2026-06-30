@@ -37,7 +37,7 @@ export default function About() {
         </div>
 
         {/* Right Column (Image Container) */}
-        <div className="relative h-[600px] w-full bg-surface animate-on-scroll">
+        <div className="relative h-[600px] w-full bg-surface animate-on-scroll rounded-3xl overflow-hidden">
           <img
             src="https://rvlpoly.com/wp-content/uploads/2020/02/profile.jpg"
             alt="RVL Infrastructure"
