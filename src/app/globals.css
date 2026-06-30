@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #01082D;
+  --color-background: #FFFFFF;
+  --color-surface: #ADE1FB;
+  --color-text-secondary: #0F2573;
+  --color-accent: #266CA9;
+  --color-secondary-dark: #041D56;
+
+  --font-sans: var(--font-sans), sans-serif;
+  --font-heading: var(--font-heading), sans-serif;
+  --font-mono: var(--font-mono), monospace;
+
+  --animate-infinite-scroll: scroll 30s linear infinite;
+  --animate-fade-in: fadeIn 0.8s ease-out forwards;
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Custom transitions and helper styles from original */
+body {
+  background-color: #FFFFFF;
+  color: #01082D;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hide scrollbar for gallery */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.img-hover-reveal {
+  transition: transform 0.5s ease;
+}
+.group:hover .img-hover-reveal {
+  transform: scale(1.05);
+}
