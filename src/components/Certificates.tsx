@@ -45,7 +45,7 @@ export default function Certificates() {
                   </span>
                 </div>
                 <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 bg-background px-4 py-2 text-sm font-medium font-mono transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-sm border border-surface">
+                  <div className="opacity-0 group-hover:opacity-100 bg-background px-5 py-2.5 text-xs font-medium font-mono transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-md border border-surface rounded-full">
                     VIEW CERTIFICATE
                   </div>
                 </div>

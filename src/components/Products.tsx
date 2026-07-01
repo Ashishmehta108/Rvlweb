@@ -91,7 +91,7 @@ export default function Products() {
               </p>
               <div className="flex flex-wrap gap-2 font-mono text-xs text-text-secondary">
                 {product.tags.map((tag, i) => (
-                  <span key={i} className="bg-surface px-2 py-1">
+                  <span key={i} className="bg-surface px-3 py-1 rounded-full text-[10px] tracking-wider font-semibold">
                     {tag}
                   </span>
                 ))}

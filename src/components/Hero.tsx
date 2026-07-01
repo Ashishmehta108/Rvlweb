@@ -13,7 +13,7 @@ export default function Hero() {
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0">
         <video
-          src="https://videos.pexels.com/video-files/3209211/3209211-hd_1920_1080_25fps.mp4"
+          src="/gemini_generated_video_ad26284b.mp4"
           className="absolute inset-0 w-full h-full object-cover opacity-50"
           autoPlay
           loop
@@ -25,7 +25,7 @@ export default function Hero() {
 
       {/* Hero Content */}
       <div className="relative z-10 text-center max-w-4xl px-6 pt-20 animate-fade-in">
-        <div className="inline-block mb-6 px-3 py-1 border border-accent/30 text-accent font-mono text-xs tracking-widest uppercase bg-primary/50 backdrop-blur-sm">
+        <div className="inline-block mb-6 px-4 py-1.5 border border-accent/30 text-accent font-mono text-xs tracking-widest uppercase bg-primary/50 backdrop-blur-sm rounded-full">
           ISO 9001:2015 Certified Manufacturing
         </div>
         <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-[1.1] tracking-tight">

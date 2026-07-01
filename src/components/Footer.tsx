@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-white pt-20 pb-10 border-t border-white/10">
+    <footer className="bg-black text-white pt-20 pb-10 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Brand Info */}
@@ -8,11 +8,11 @@ export default function Footer() {
             <span className="font-heading font-bold text-2xl tracking-tight mb-6 block">
               RVL POLY
             </span>
-            <p className="text-surface/60 max-w-sm font-light text-sm">
+            <p className="text-zinc-400 max-w-sm font-light text-sm">
               Premium industrial packaging solutions engineered with precision. Serving
               top corporations since 2009.
             </p>
-            <div className="mt-6 inline-block border border-white/20 px-3 py-1 font-mono text-xs text-white/80 uppercase tracking-widest">
+            <div className="mt-6 inline-block border border-white/20 px-4 py-1.5 font-mono text-xs text-white/80 uppercase tracking-widest rounded-full bg-white/5">
               ISO 9001:2015 Certified
             </div>
           </div>

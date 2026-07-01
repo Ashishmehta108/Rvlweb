@@ -43,7 +43,7 @@ export default function About() {
             alt="RVL Infrastructure"
             className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
           />
-          <div className="absolute inset-0 border border-primary/10 m-4 pointer-events-none"></div>
+          <div className="absolute inset-0 border border-primary/10 rounded-[20px] m-4 pointer-events-none"></div>
         </div>
       </div>
     </section>

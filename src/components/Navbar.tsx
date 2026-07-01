@@ -19,15 +19,20 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav
-      id="navbar"
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-surface/30"
-          : "bg-transparent"
+    <div
+      id="navbar-container"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled ? "pt-4 px-4 md:px-8" : "pt-6 px-6"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <nav
+        id="navbar"
+        className={`mx-auto max-w-7xl transition-all duration-500 rounded-full px-6 py-3.5 flex justify-between items-center ${
+          isScrolled
+            ? "bg-background/80 backdrop-blur-xl shadow-xl border border-surface/20 py-2.5"
+            : "bg-white/10 backdrop-blur-md border border-white/10"
+        }`}
+      >
         {/* Brand Logo */}
         <div className="flex items-center gap-2">
           <a
@@ -44,34 +49,34 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-8 text-sm font-medium">
           <a
             href="#about"
-            className={`transition-colors hover:text-accent ${
-              isScrolled ? "text-text-secondary" : "text-surface/90 hover:text-white"
+            className={`transition-colors hover:text-accent font-sans ${
+              isScrolled ? "text-text-secondary hover:text-accent" : "text-white/90 hover:text-white"
             }`}
           >
             About
           </a>
           <a
             href="#products"
-            className={`transition-colors hover:text-accent ${
-              isScrolled ? "text-text-secondary" : "text-surface/90 hover:text-white"
+            className={`transition-colors hover:text-accent font-sans ${
+              isScrolled ? "text-text-secondary hover:text-accent" : "text-white/90 hover:text-white"
             }`}
           >
             Products
           </a>
           <a
             href="#capabilities"
-            className={`transition-colors hover:text-accent ${
-              isScrolled ? "text-text-secondary" : "text-surface/90 hover:text-white"
+            className={`transition-colors hover:text-accent font-sans ${
+              isScrolled ? "text-text-secondary hover:text-accent" : "text-white/90 hover:text-white"
             }`}
           >
             Capabilities
           </a>
           <a
             href="#contact"
-            className={`px-5 py-2.5 rounded-full font-medium transition-colors ${
+            className={`px-5 py-2.5 rounded-full font-medium transition-all duration-300 font-sans ${
               isScrolled
-                ? "bg-primary text-white hover:bg-primary/90"
-                : "bg-white text-primary hover:bg-surface/20 hover:text-white border border-transparent hover:border-white"
+                ? "bg-primary text-white hover:bg-accent hover:shadow-md"
+                : "bg-white text-primary hover:bg-white/20 hover:text-white border border-transparent hover:border-white/20"
             }`}
           >
             Get in Touch
@@ -80,7 +85,9 @@ export default function Navbar() {
 
         {/* Mobile Hamburger Menu Toggle */}
         <button
-          className="md:hidden p-2 rounded-lg focus:outline-none transition-colors"
+          className={`md:hidden p-2 rounded-full focus:outline-none transition-colors ${
+            isScrolled ? "hover:bg-primary/5 text-primary" : "hover:bg-white/10 text-white"
+          }`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle Mobile Menu"
         >
@@ -91,7 +98,6 @@ export default function Navbar() {
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
-            className={isScrolled ? "text-primary" : "text-white"}
           >
             {isMobileMenuOpen ? (
               <path d="M18 6L6 18M6 6l12 12" />
@@ -100,11 +106,11 @@ export default function Navbar() {
             )}
           </svg>
         </button>
-      </div>
+      </nav>
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full bg-background border-b border-surface/55 transition-all duration-300 origin-top ${
+        className={`md:hidden absolute top-full left-4 right-4 mt-2 bg-background/95 backdrop-blur-xl border border-surface/30 transition-all duration-300 origin-top shadow-2xl rounded-3xl ${
           isMobileMenuOpen
             ? "opacity-100 scale-y-100 visible"
             : "opacity-0 scale-y-0 invisible h-0"
@@ -141,6 +147,6 @@ export default function Navbar() {
           </a>
         </div>
       </div>
-    </nav>
+    </div>
   );
 }
