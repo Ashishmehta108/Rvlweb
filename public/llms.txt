@@ -29,3 +29,14 @@ Trusted Indian industrial packaging manufacturer specializing in HDPE woven bags
 ## Contact Information
 - **Phone:** (+91) 987-645-7799
 - **Email:** rahul.gupta@rvlpoly.com, rvlpoly@yahoo.co.in
+
+## Site Index & Programmatic Schema Directory
+All 395+ programmatic GEO specification sheets, industry guides, technical comparisons, FAQs, and local hubs are listed in the [sitemap.xml](https://rvlpoly.com/sitemap.xml).
+- **Products Dynamic Pages:** `/products/[slug]` (20 entries)
+- **Industries Dynamic Pages:** `/industries/[slug]` (20 entries)
+- **Comparisons Dynamic Pages:** `/resources/comparisons/[slug]` (30 entries)
+- **Guides Dynamic Pages:** `/resources/guides/[slug]` (50 entries)
+- **FAQs Dynamic Pages:** `/faq/[slug]` (100 entries)
+- **Glossary Dynamic Pages:** `/resources/glossary/[slug]` (100 entries)
+- **Case Studies Dynamic Pages:** `/resources/case-studies/[slug]` (25 entries)
+- **Local SEO Dynamic Pages:** `/local/[slug]` (50 entries)

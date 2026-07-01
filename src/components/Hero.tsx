@@ -51,13 +51,13 @@ export default function Hero() {
       </div>
 
       {/* Infinite Scrolling Ribbon */}
-      <div className="absolute bottom-0 w-full overflow-hidden bg-white/5 backdrop-blur-sm border-t border-white/10 py-4 flex z-10">
-        <div className="flex whitespace-nowrap animate-infinite-scroll w-max font-mono text-xs uppercase tracking-[0.2em] text-surface/70">
+      <div className="absolute bottom-0 w-full overflow-hidden bg-black/30 backdrop-blur-xs border-t border-white/5 py-3 flex z-10">
+        <div className="flex whitespace-nowrap animate-infinite-scroll w-max font-mono text-[10px] uppercase tracking-[0.25em] text-white/55">
           {/* Double list render for seamless scrolling */}
           {[...ribbonItems, ...ribbonItems].map((item, index) => (
-            <span key={index} className="mx-8 flex items-center gap-4">
+            <span key={index} className="mx-10 flex items-center gap-4">
               <span>{item}</span>
-              <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
+              <span className="w-1.5 h-1.5 bg-white/20 rounded-full"></span>
             </span>
           ))}
         </div>
