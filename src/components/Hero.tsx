@@ -25,9 +25,6 @@ export default function Hero() {
 
       {/* Hero Content */}
       <div className="relative z-10 text-center max-w-4xl px-6 pt-20 animate-fade-in">
-        <div className="inline-block mb-6 px-4 py-1.5 border border-accent/30 text-accent font-mono text-xs tracking-widest uppercase bg-primary/50 backdrop-blur-sm rounded-full">
-          ISO 9001:2015 Certified Manufacturing
-        </div>
         <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
           Precision in<br />Polymer Solutions
         </h1>
